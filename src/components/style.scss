@@ -1,0 +1,103 @@
+/* 
+
+QUESTION: Can we shift the size of the container of the drum beats to a smaller width depending on the measure type? 
+For example, if we are using eighth notes, we want that to be one half of the size of the fourth notes to indicate 
+double time. I
+
+ANSWER: n order to do this, we have to look at the drum track beat type, and create a container around the 
+beats, which then specifies a specifc width for the entire container, the elements within being fluid and adaptable.
+
+*/
+
+* {
+    box-sizing:border-box;
+}
+
+ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+
+$beatTypes: 1, 2, 4, 8, 16, 32, 64;
+$maxBeats: 100;
+
+// SASS is so cool
+@mixin beat-x-list {
+    @for $i from 1 to $maxBeats {
+        @each $beatType in $beatTypes {
+            .drumtrack__drumbeats__drumbeat--#{$i}--#{$beatType} { 
+                width: (4 * (100/$i))/($beatType) * 1%;
+            }
+        }
+    }
+}
+
+@mixin remove-default-appearance {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -ms-appearance: none !important;
+  -o-appearance: none !important;
+  appearance: none !important; 
+  padding: 0 0 0 em(10);
+  margin: 0 0 em(10) 0;
+  line-height: em(20); 
+  border-radius:0;
+}
+
+
+
+@include beat-x-list;
+
+
+.drummachine {
+    max-width:90%;
+    margin:0 auto;
+    padding:2.5%;
+    display:block;
+    background-color:#111;
+    color:#FFF;
+}
+
+.drumtrack__drumbeats__drumbeat--active {
+    background-color:#ACDFEE !important;
+}
+
+.drumtrack__timesig {
+    font-size:2em;
+}
+
+
+
+.drumtrack__controls {
+    width:20%;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.drumtrack__controls > label {
+    display:block;
+}
+
+.drumtrack__controls > label > input,
+.drumtrack__controls > label > select {
+    @include remove-default-appearance;
+    display:block;
+    padding:7px 4px;
+    width:50px;
+    height:40px;
+}
+
+.drumtrack__drumbeats {
+    width:80%;
+    display:inline-block;
+}
+
+.drumtrack__drumbeats__drumbeat {
+    border:8px solid black;
+    display:inline-block;
+    background-color: white;
+    min-height: 150px;
+    height:100%;
+}
+
