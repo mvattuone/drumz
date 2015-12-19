@@ -132,8 +132,8 @@ var DrumTrack = React.createClass({
 
     window.loop = this.loop;
     
-    // Start sequence
-    this.loop.start();
+    // Start sequence, ensure tracks are synchronized
+    this.loop.start(0);
   },
 
   // Create the appropriate number of beats based on the time signature
