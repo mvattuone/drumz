@@ -60,15 +60,10 @@ var DrumTrack = React.createClass({
     
     // update beat map to reflect active toggle
     updatedBeatMap[index] = isActive ? "active" : null;
-    this.setState({ beatMap: updatedBeatMap }, function() {
-      if (this.loop.state === "stopped") {
-        this.loop.start(0);
-      }
-    });
+    this.setState({ beatMap: updatedBeatMap });
   },
 
   _toggleBeatType: function(event) {
-    console.log(event.target.value);
     this.setState({ beatType: event.target.value }, function() {
       this._renderTrack();
     });
@@ -156,7 +151,7 @@ var DrumTrack = React.createClass({
       <li>
         <form className="drumtrack__controls">
           
-          <label for="drum">
+          <label htmlFor="drum">
             Drum Sound
             <select name="drum" onChange={this.handleChange}>
               <option value="k">Kick</option>
@@ -166,12 +161,12 @@ var DrumTrack = React.createClass({
             </select>
           </label>
 
-          <label for="beatCount">
+          <label htmlFor="beatCount">
             Beat Count
             <input type="number"  min="1" max="64" name="beatCount" value={beatCount} onChange={this.handleChange} />
           </label>
 
-          <label for="beatType">
+          <label htmlFor="beatType">
             Beat Type
             <select name="beatType" onChange={this.handleChange}>
               <option value="1">1</option>
