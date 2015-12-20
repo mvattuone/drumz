@@ -1,4 +1,4 @@
-var HiHat = new Tone.Sampler("./src/audio/drums/hh.mp3", {
+var HiHat = new Tone.Sampler("./src/audio/drumtrax/DrumtraxClosedhat-24b.wav", {
     "volume" : -10,
     "envelope" : {
         "attack" : 0.001,

@@ -1,4 +1,4 @@
-var Snare = new Tone.Sampler("./src/audio/drums/snare.mp3", {
+var Snare = new Tone.Sampler("./src/audio/drumtrax/DrumtraxSnare-24b.wav", {
     "envelope" : {
         "attack" : 0.01,
         "decay" : 0.05,
