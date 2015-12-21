@@ -19,7 +19,7 @@ var DrumTrack = React.createClass({
     };
   },
 
-  // Kick off the first loop outside right after getInitialState
+  // Kick off the first sequence outside right after getInitialState
   componentDidMount: function() {
     this._renderTrack();
   },
@@ -28,21 +28,7 @@ var DrumTrack = React.createClass({
   // make sure we update the state so we can re-render
   // the proper number of beats.
   handleChange: function(event) {
-
-    // Route our event to the proper method
-    switch (event.target.name) {
-      case 'drum':
-        this._toggleDrum(event);
-        break;
-      case 'beatCount':
-        this._toggleBeatCount(event);      
-        break;
-      case 'beatType':
-        this._toggleBeatType(event);
-        break;
-      default:
-    throw Error("Must supply a valid parameter to change! Choices include node, beatCount, and beatType.");
-    }
+    this._toggle(event.target.name, event.target.value);      
   },
 
   handleChildToggle: function(index, isActive) {
@@ -55,40 +41,41 @@ var DrumTrack = React.createClass({
     this.setState({ beatMap: updatedBeatMap });
   },
 
-  _toggleBeatType: function(event) {
-    this.setState({ beatType: event.target.value }, function() {
-      this._renderTrack();
-    });
-  },
-
-  _toggleBeatCount: function(event) {
-    this.setState({ beatCount: event.target.value }, function() {
-      this._renderTrack()
-    });
-  },
-
-  _toggleDrum: function(event) {
-    var drum;
-
-    switch (event.target.value) {
+  _getSound: function(soundKey) {
+    switch (soundKey) {
       case 'k':
-        drum = Kick;
+        sound = Kick;
         break;
       case 'hh':
-        drum = HiHat;
+        sound = HiHat;
         break;
       case 'hho':
-        drum = HiHatOpen;
+        sound = HiHatOpen;
         break;
       case 's':
-        drum = Snare;
+        sound = Snare;
         break;
       default:
-        throw Error("You need to provide a valid drum")
+        throw Error("You need to provide a valid sound key!")
     }
 
-    this.setState({ drum: drum }, function() {
-      this._renderTrack();
+    return sound;
+  },
+
+  
+  _toggle: function(type, value) {
+    if (type === 'drum') {
+      value = this._getSound(value); 
+    }
+
+    var newState = {};
+
+    newState[type] = value;
+
+    console.log(this.state);
+
+    this.setState(newState, function() {
+      this._renderTrack 
     });
   },
 
@@ -120,12 +107,10 @@ var DrumTrack = React.createClass({
     }
 
     // Create sequence
-    this.loop = this._createSequence(beats);
-
-    window.loop = this.loop;
+    this.sequence = this._createSequence(beats);
     
     // Start sequence, ensure tracks are synchronized
-    this.loop.start(0);
+    this.sequence.start(0);
   },
 
   // Create the appropriate number of beats based on the time signature
