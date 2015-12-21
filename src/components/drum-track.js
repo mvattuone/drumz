@@ -1,7 +1,4 @@
 DrumBeat = require('../components/drum-beat');
-
-ArrayFill = require('../utils/array-fill')
-
 Kick = require('../audio/kick');
 Snare = require('../audio/snare');
 HiHat = require('../audio/hihat');
@@ -13,10 +10,11 @@ var DrumTrack = React.createClass({
   // We pass in an initial time signature of 4/4 to component state 
   // via initialization props.
   getInitialState: function() {  
+    var beatMap = [];
     return {
       beatCount: this.props.initialBeatCount,
       beatType: this.props.initialBeatType,
-      beatMap: ArrayFill(this.props.initialBeatCount,null),
+      beatMap: beatMap.fill(this.props.initialBeatCount,null),
       drum: Kick
     };
   },

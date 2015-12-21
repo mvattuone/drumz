@@ -6,6 +6,9 @@ $ = require('jquery');
 Tone = require('tone');
 DrumMachine = require('./components/drum-machine');
 
+// A shim
+Array.prototype.fill = require('./utils/array/fill');
+
 // Kick it!
 
 ReactDOM.render(
