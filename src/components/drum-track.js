@@ -29,12 +29,6 @@ var DrumTrack = React.createClass({
   // the proper number of beats.
   handleChange: function(event) {
 
-    // Stop and remove the loop if it exists, we'll start it up again soon.
-    if (this.loop !== undefined) {
-      this.loop.stop();
-      this.loop.dispose();
-    }
-
     // Route our event to the proper method
     switch (event.target.name) {
       case 'drum':
