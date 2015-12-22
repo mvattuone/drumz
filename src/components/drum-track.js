@@ -1,9 +1,18 @@
 DrumBeat = require('../components/drum-beat');
-Kick = require('../audio/kick');
-Snare = require('../audio/snare');
+
+Cabasa = require('../audio/cabasa');
+Cowbell = require('../audio/cowbell');
+Clap = require('../audio/clap');
+Crash = require('../audio/crash');
 HiHat = require('../audio/hihat');
 HiHatOpen = require('../audio/hihat-open');
-
+Kick = require('../audio/kick');
+Ride = require('../audio/ride');
+Rimshot = require('../audio/rimshot');
+Snare = require('../audio/snare');
+Tambourine = require('../audio/tambourine');
+Tom1 = require('../audio/tom-1');
+Tom2 = require('../audio/tom-2');
 
 var DrumTrack = React.createClass({
 
@@ -15,7 +24,7 @@ var DrumTrack = React.createClass({
       beatCount: this.props.initialBeatCount,
       beatType: this.props.initialBeatType,
       beatMap: beatMap.fill(this.props.initialBeatCount,null),
-      drum: Kick
+      drum: Cabasa
     };
   },
 
@@ -54,6 +63,33 @@ var DrumTrack = React.createClass({
         break;
       case 's':
         sound = Snare;
+        break;
+      case 't1':
+        sound = Tom1;
+        break;
+      case 't2':
+        sound = Tom2;
+        break;
+      case 'tm':
+        sound = Tambourine;
+        break;
+      case 'ca':
+        sound = Cabasa;
+        break;
+      case 'cl':
+        sound = Clap;
+        break;
+      case 'cb':
+        sound = Cowbell;
+        break;
+      case 'cr':
+        sound = Crash;
+        break;
+      case 'rs':
+        sound = Rimshot;
+        break;
+      case 'rd':
+        sound = Ride;
         break;
       default:
         throw Error("You need to provide a valid sound key!")
@@ -133,10 +169,19 @@ var DrumTrack = React.createClass({
           <label htmlFor="drum">
             Drum Sound
             <select name="drum" onChange={this.handleChange}>
+              <option value="ca">Cabasa</option>
               <option value="k">Kick</option>
               <option value="s">Snare</option>
               <option value="hh">Hi Hat</option>
               <option value="hho">Open Hi Hat</option>
+              <option value="cl">Clap</option>
+              <option value="cr">Crash</option>
+              <option value="cb">Cowbell</option>
+              <option value="rd">Ride</option>
+              <option value="rs">Rimshot</option>
+              <option value="tm">Tambourine</option>
+              <option value="t1">Tom 1</option>
+              <option value="t2">Tom 2</option>
             </select>
           </label>
 
@@ -148,7 +193,7 @@ var DrumTrack = React.createClass({
           <label htmlFor="beatType">
             Beat Type
             <select name="beatType" onChange={this.handleChange}>
-              <option value="1">1</option>
+              <option value="">1</option>
               <option value="2">2</option>
               <option value="4">4</option>
               <option value="8">8</option>
