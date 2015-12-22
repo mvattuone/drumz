@@ -48584,7 +48584,7 @@ var DrumTrack = React.createClass({
             ),
             React.createElement(
               'option',
-              { value: '4' },
+              { value: '4', selected: true },
               '4'
             ),
             React.createElement(

@@ -187,7 +187,7 @@ var DrumTrack = React.createClass({
 
           <label htmlFor="beatCount">
             Beat Count
-            <input type="number"  min="1" max="64" name="beatCount" value={beatCount} onChange={this.handleChange} />
+            <input type="number" min="1" max="64" name="beatCount" value={beatCount} onChange={this.handleChange} />
           </label>
 
           <label htmlFor="beatType">
@@ -195,7 +195,7 @@ var DrumTrack = React.createClass({
             <select name="beatType" onChange={this.handleChange}>
               <option value="">1</option>
               <option value="2">2</option>
-              <option value="4">4</option>
+              <option value="4" selected>4</option>
               <option value="8">8</option>
               <option value="16">16</option>
               <option value="32">32</option>
