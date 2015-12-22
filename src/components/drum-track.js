@@ -72,11 +72,7 @@ var DrumTrack = React.createClass({
 
     newState[type] = value;
 
-    console.log(this.state);
-
-    this.setState(newState, function() {
-      this._renderTrack 
-    });
+    this.setState(newState, this._renderTrack);
   },
 
   // Create a sequence of beats that map to the currently active
@@ -100,16 +96,22 @@ var DrumTrack = React.createClass({
 
   _renderTrack: function() {
 
+    // Stop the existing loop
+    if (this.sequence !== undefined) {
+      this.sequence.stop();
+    }
+
     // Create total beats to sequence
     var beats = [];
     for (var i = 0; i < this.state.beatCount; i++) {
       beats.push(i);
     }
 
-    // Create sequence
+    // Create new sequence 
     this.sequence = this._createSequence(beats);
     
-    // Start sequence, ensure tracks are synchronized
+    // Start sequence, ensure tracks are synchronized by starting them all
+    // from the beginning
     this.sequence.start(0);
   },
 
