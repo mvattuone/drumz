@@ -48397,10 +48397,10 @@ var DrumTrack = React.createClass({
           'Beat Type',
           React.createElement(
             'select',
-            { name: 'beatType', onChange: this.handleChange },
+            { name: 'beatType', defaultValue: '4', onChange: this.handleChange },
             React.createElement(
               'option',
-              { value: '' },
+              { value: '1' },
               '1'
             ),
             React.createElement(
@@ -48410,7 +48410,7 @@ var DrumTrack = React.createClass({
             ),
             React.createElement(
               'option',
-              { value: '4', selected: true },
+              { value: '4' },
               '4'
             ),
             React.createElement(
