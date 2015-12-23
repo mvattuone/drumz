@@ -24,11 +24,9 @@ $maxBeats: 100;
 
 // SASS is so cool
 @mixin beat-x-list {
-    @for $i from 1 to $maxBeats {
-        @each $beatType in $beatTypes {
-            .drumtrack__drumbeats__drumbeat--#{$i}--#{$beatType} { 
-                width: (4 * (100/$i))/($beatType) * 1%;
-            }
+    @each $beatType in $beatTypes {
+        .drumtrack__drumbeats__drumbeat--#{$beatType} { 
+            width: (100)/($beatType) * 1%;
         }
     }
 }

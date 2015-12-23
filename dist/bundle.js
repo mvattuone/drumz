@@ -48022,7 +48022,9 @@ var HiHat = new Tone.Sampler("./src/audio/drumtrax/DrumtraxClosedhat-24b.wav").t
 module.exports = HiHat;
 
 },{}],168:[function(require,module,exports){
-var Kick = new Tone.Sampler("./src/audio/drumtrax/DrumtraxKick-24b.wav").toMaster();
+var Kick = new Tone.Sampler("./src/audio/drumtrax/DrumtraxKick-24b.wav", {
+    "volume": 30
+}).toMaster();
 
 module.exports = Kick;
 
@@ -48037,7 +48039,9 @@ var Rimshot = new Tone.Sampler("./src/audio/drumtrax/DrumtraxRimshot-24b.wav").t
 module.exports = Rimshot;
 
 },{}],171:[function(require,module,exports){
-var Snare = new Tone.Sampler("./src/audio/drumtrax/DrumtraxSnare-24b.wav").toMaster();
+var Snare = new Tone.Sampler("./src/audio/drumtrax/DrumtraxSnare-24b.wav", {
+    "volume": 30
+}).toMaster();
 
 module.exports = Snare;
 
@@ -48077,7 +48081,7 @@ var DrumBeat = React.createClass({
   },
 
   render: function () {
-    var classes = "drumtrack__drumbeats__drumbeat drumtrack__drumbeats__drumbeat--" + this.props.beatCount + "--" + this.props.beatType + " " + (this.state.isActive ? "drumtrack__drumbeats__drumbeat--active" : "");
+    var classes = "drumtrack__drumbeats__drumbeat drumtrack__drumbeats__drumbeat--" + this.props.beatType + " " + (this.state.isActive ? "drumtrack__drumbeats__drumbeat--active" : "");
     return React.createElement("div", { onClick: this.onToggle, className: classes });
   }
 

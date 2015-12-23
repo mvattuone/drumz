@@ -17,7 +17,7 @@ var DrumBeat = React.createClass({
   },
 
   render: function() {
-    var classes = "drumtrack__drumbeats__drumbeat drumtrack__drumbeats__drumbeat--" + this.props.beatCount + "--" + this.props.beatType  + " " + (this.state.isActive ? "drumtrack__drumbeats__drumbeat--active" : "");
+    var classes = "drumtrack__drumbeats__drumbeat drumtrack__drumbeats__drumbeat--" + this.props.beatType  + " " + (this.state.isActive ? "drumtrack__drumbeats__drumbeat--active" : "");
     return (
       <div onClick={this.onToggle} className={classes} />
     )
