@@ -47992,245 +47992,67 @@ Array.prototype.fill = require('./utils/array/fill');
 ReactDOM.render(React.createElement(DrumMachine, { initialTrackCount: 1, initialBPM: 120 }), $('#application')[0]);
 
 },{"./components/drum-machine":176,"./utils/array/fill":178,"jquery":28,"react":159,"react-dom":30,"tone":160}],162:[function(require,module,exports){
-var Cabasa = new Tone.Sampler("./src/audio/drumtrax/DrumtraxCabasa-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Cabasa = new Tone.Sampler("./src/audio/drumtrax/DrumtraxCabasa-24b.wav").toMaster();
 
 module.exports = Cabasa;
 
 },{}],163:[function(require,module,exports){
-var Clap = new Tone.Sampler("./src/audio/drumtrax/DrumtraxClap-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Clap = new Tone.Sampler("./src/audio/drumtrax/DrumtraxClap-24b.wav").toMaster();
 
 module.exports = Clap;
 
 },{}],164:[function(require,module,exports){
-var Cowbell = new Tone.Sampler("./src/audio/drumtrax/DrumtraxCowbell-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Cowbell = new Tone.Sampler("./src/audio/drumtrax/DrumtraxCowbell-24b.wav").toMaster();
 
 module.exports = Cowbell;
 
 },{}],165:[function(require,module,exports){
-var Crash = new Tone.Sampler("./src/audio/drumtrax/DrumtraxCrash-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Crash = new Tone.Sampler("./src/audio/drumtrax/DrumtraxCrash-24b.wav").toMaster();
 
 module.exports = Crash;
 
 },{}],166:[function(require,module,exports){
-var HiHatOpen = new Tone.Sampler("./src/audio/drumtrax/DrumtraxOpenhat-24b.wav", {
-    "volume": -7,
-    "envelope": {
-        "attack": 0.001,
-        "decay": 0.02,
-        "sustain": 0.01,
-        "release": 0.01
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.02,
-        "sustain": 1,
-        "baseFrequency": 6000,
-        "octaves": -3.3
-    },
-    "filter": {
-        "type": "highpass"
-    }
-}).toMaster();
+var HiHatOpen = new Tone.Sampler("./src/audio/drumtrax/DrumtraxOpenhat-24b.wav").toMaster();
 
 module.exports = HiHatOpen;
 
 },{}],167:[function(require,module,exports){
-var HiHat = new Tone.Sampler("./src/audio/drumtrax/DrumtraxClosedhat-24b.wav", {
-    "volume": -10,
-    "envelope": {
-        "attack": 0.001,
-        "decay": 0.02,
-        "sustain": 0.01,
-        "release": 0.01
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.02,
-        "sustain": 1,
-        "baseFrequency": 6000,
-        "octaves": -3.3
-    },
-    "filter": {
-        "type": "highpass"
-    }
-}).toMaster();
+var HiHat = new Tone.Sampler("./src/audio/drumtrax/DrumtraxClosedhat-24b.wav").toMaster();
 
 module.exports = HiHat;
 
 },{}],168:[function(require,module,exports){
-var Kick = new Tone.DrumSynth({
-    "volume": 8,
-    "pitchDecay": 0.01,
-    "octaves": 6,
-    "oscillator": {
-        "type": "square4"
-    },
-    "envelope": {
-        "attack": 0.012,
-        "decay": 0.3,
-        "sustain": 0.1
-    }
-}).toMaster();
+var Kick = new Tone.Sampler("./src/audio/drumtrax/DrumtraxKick-24b.wav").toMaster();
 
 module.exports = Kick;
 
 },{}],169:[function(require,module,exports){
-var Ride = new Tone.Sampler("./src/audio/drumtrax/DrumtraxRide-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Ride = new Tone.Sampler("./src/audio/drumtrax/DrumtraxRide-24b.wav").toMaster();
 
 module.exports = Ride;
 
 },{}],170:[function(require,module,exports){
-var Rimshot = new Tone.Sampler("./src/audio/drumtrax/DrumtraxRimshot-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Rimshot = new Tone.Sampler("./src/audio/drumtrax/DrumtraxRimshot-24b.wav").toMaster();
 
 module.exports = Rimshot;
 
 },{}],171:[function(require,module,exports){
-var Snare = new Tone.Sampler("./src/audio/drumtrax/DrumtraxSnare-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Snare = new Tone.Sampler("./src/audio/drumtrax/DrumtraxSnare-24b.wav").toMaster();
 
 module.exports = Snare;
 
 },{}],172:[function(require,module,exports){
-var Tambourine = new Tone.Sampler("./src/audio/drumtrax/DrumtraxTambourine-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Tambourine = new Tone.Sampler("./src/audio/drumtrax/DrumtraxTambourine-24b.wav").toMaster();
 
 module.exports = Tambourine;
 
 },{}],173:[function(require,module,exports){
-var Tom1 = new Tone.Sampler("./src/audio/drumtrax/DrumtraxTom01-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Tom1 = new Tone.Sampler("./src/audio/drumtrax/DrumtraxTom01-24b.wav").toMaster();
 
 module.exports = Tom1;
 
 },{}],174:[function(require,module,exports){
-var Tom2 = new Tone.Sampler("./src/audio/drumtrax/DrumtraxTom02-24b.wav", {
-    "envelope": {
-        "attack": 0.01,
-        "decay": 0.05,
-        "sustain": 0
-    },
-    "filterEnvelope": {
-        "attack": 0.001,
-        "decay": 0.01,
-        "sustain": 0,
-        "baseFrequency": 3000,
-        "octaves": 2
-    }
-}).toMaster();
+var Tom2 = new Tone.Sampler("./src/audio/drumtrax/DrumtraxTom02-24b.wav").toMaster();
 
 module.exports = Tom2;
 
