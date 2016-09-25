@@ -8,12 +8,19 @@ var browserify = require('browserify'),
     uglify = require('gulp-uglify'),
     compass = require('gulp-compass'),
     babelify = require('babelify'),
+    ghPages = require('gulp-gh-pages'),
     sourcemaps = require('gulp-sourcemaps');
 
 function errorAlert(err) {
   gutil.log(err);
   this.emit("end");
 }
+
+gulp.task('html', function() {
+    gulp.src('./index.html')
+        .on('error', errorAlert)
+        .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('sass', function() {
     gulp.src('./src/components/style.scss')
@@ -44,6 +51,13 @@ gulp.task('javascript', function () {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('watch', function() { 
-  gulp.watch(['src/*/**', 'src/*/*/**', 'src/app.js'], ['javascript', 'sass']);
+gulp.task('build', ['html', 'sass', 'javascript']);
+
+gulp.task('watch', function() {
+  gulp.watch(['src/*/**', 'src/*/*/**', 'src/app.js'], ['html', 'javascript', 'sass']);
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
