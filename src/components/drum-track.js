@@ -1,5 +1,5 @@
+_ = require('lodash');
 DrumBeat = require('../components/drum-beat');
-
 Cabasa = require('../audio/cabasa');
 Cowbell = require('../audio/cowbell');
 Clap = require('../audio/clap');
@@ -16,14 +16,14 @@ Tom2 = require('../audio/tom-2');
 
 var DrumTrack = React.createClass({
 
-  // We pass in an initial time signature of 4/4 to component state 
+  // We pass in an initial time signature of 4/4 to component state
   // via initialization props.
-  getInitialState: function() {  
+  getInitialState: function() {
     var beatMap = [];
     return {
       beatCount: this.props.initialBeatCount,
       beatType: this.props.initialBeatType,
-      beatMap: beatMap.fill(this.props.initialBeatCount,null),
+      beatMap: _.fill(beatMap, this.props.initialBeatCount,null),
       drum: Cabasa
     };
   },
@@ -33,18 +33,18 @@ var DrumTrack = React.createClass({
     this._renderTrack();
   },
 
-  // When the time signature in a track changes, 
+  // When the time signature in a track changes,
   // make sure we update the state so we can re-render
   // the proper number of beats.
   handleChange: function(event) {
-    this._toggle(event.target.name, event.target.value);      
+    this._toggle(event.target.name, event.target.value);
   },
 
   handleChildToggle: function(index, isActive) {
     // Create a clone of the existing beat map
     var updatedBeatMap = this.state.beatMap.slice(),
     self = this;
-    
+
     // update beat map to reflect active toggle
     updatedBeatMap[index] = isActive ? "active" : null;
     this.setState({ beatMap: updatedBeatMap });
@@ -98,10 +98,10 @@ var DrumTrack = React.createClass({
     return sound;
   },
 
-  
+
   _toggle: function(type, value) {
     if (type === 'drum') {
-      value = this._getSound(value); 
+      value = this._getSound(value);
     }
 
     var newState = {};
@@ -112,7 +112,7 @@ var DrumTrack = React.createClass({
   },
 
   // Create a sequence of beats that map to the currently active
-  // triggers for the drum track. We play these at the rate of 
+  // triggers for the drum track. We play these at the rate of
   // the given beat type for the duration of the number of beats.
   // Hence, we create one measure.
 
@@ -143,9 +143,9 @@ var DrumTrack = React.createClass({
       beats.push(i);
     }
 
-    // Create new sequence 
+    // Create new sequence
     this.sequence = this._createSequence(beats);
-    
+
     // Start sequence, ensure tracks are synchronized by starting them all
     // from the beginning
     this.sequence.start(0);
@@ -165,7 +165,7 @@ var DrumTrack = React.createClass({
     return (
       <li>
         <form className="drumtrack__controls">
-          
+
           <label htmlFor="drum">
             Drum Sound
             <select name="drum" onChange={this.handleChange}>
@@ -206,7 +206,7 @@ var DrumTrack = React.createClass({
             <sup className="beatCount">{beatCount}</sup>&frasl;<sub className="beatType">{beatType}</sub>
           </div>
         </form>
-      
+
         <ul className="drumtrack__drumbeats">
           {beats}
         </ul>
